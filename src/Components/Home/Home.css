@@ -1,0 +1,47 @@
+.home_main_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    height: auto;
+    padding: 10px;
+}
+
+.home_main_div_2 {
+    /* border: 2px solid black; */
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.home_main_div_2_top {
+    display: flex;
+    justify-content: right;
+}
+
+.home_main_div_2_bottom {
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* .all_order_box_top {
+    border: 2px solid black;
+} */
+
+/* .all_order_box_bottom {
+    border: 2px solid black;
+} */
+
+.all_order_box_bottom .home_order_list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.home_order_list .home_order_list_font{
+ background-color: lightblue;   
+ width: 100%;
+ font-size: 15px;
+}

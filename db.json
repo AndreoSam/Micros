@@ -1,41 +1,140 @@
 {
-    "customer":[
-        {
-            "id":"1",
-            "name":"abc",
-            "room_number":"ABC123"
-        }
-    ],
-    "orders":[
-        {
-            "customer_id":"1",
-            "room_number":"ABC123",
-            "order_date":"2021-01-01",
-            "order_time":"12:00:00"
-        }
-    ],
-    "food":[
-        {
-            "customer_id":"1",
-            "food_id":"1",
-            "food_name":"abc"
-        },
-        {
-            "customer_id":"1",
-            "food_id":"2",
-            "food_name":"def"
-        }
-    ],
-    "drink":[
-        {
-            "customer_id":"1",
-            "drink_id":"1",
-            "drink_name":"abc"
-        },
-        {
-            "customer_id":"1",
-            "drink_id":"2",
-            "drink_name":"def"
-        }
-    ]
+  "food": [
+    {
+      "food_id": "1",
+      "food_name": "food 1",
+      "customer_id": "1"
+    },
+    {
+      "food_id": "2",
+      "food_name": "food 2",
+      "customer_id": "1"
+    }
+  ],
+  "drink": [
+    {
+      "drink_id": "1",
+      "drink_name": "drink 1",
+      "customer_id": "1"
+    },
+    {
+      "drink_id": "2",
+      "drink_name": "drink 2",
+      "customer_id": "1"
+    }
+  ],
+  "orders": [
+    {
+      "order_date": "2021-01-01",
+      "order_time": "12:00:00",
+      "customer_id": "1",
+      "room_number": "ABC123"
+    }
+  ],
+  "customer": [
+    {
+      "id": "1",
+      "name": "raj",
+      "status": "Paid",
+      "room_number": "ABC123",
+      "category": "Walk In",
+      "table_number": "45"
+    },
+    {
+      "id": "2",
+      "name": "shubh",
+      "status": "Unpaid",
+      "room_number": "ASFASF1325",
+      "category": "Walk In",
+      "table_number": "45"
+    },
+    {
+      "id": "3",
+      "name": "adam",
+      "status": "Unpaid",
+      "room_number": "SDFD15DF",
+      "category": "In House",
+      "table_number": "45"
+    },
+    {
+      "id": "4",
+      "name": "suraj",
+      "status": "Paid",
+      "room_number": "SAF12S",
+      "category": "Walk In",
+      "table_number": "45"
+    },
+    {
+      "id": "5",
+      "name": "shyam",
+      "status": "Unpaid",
+      "room_number": "ASFASF1325",
+      "category": "Walk In",
+      "table_number": "45"
+    },
+    {
+      "id": "6",
+      "name": "raju",
+      "status": "Unpaid",
+      "room_number": "SDFD15DF",
+      "category": "In House",
+      "table_number": "45"
+    },
+    {
+      "id": "7",
+      "name": "gilbert",
+      "status": "Paid",
+      "room_number": "SAF12S",
+      "category": "Walk In",
+      "table_number": "45"
+    },
+    {
+      "id": "8",
+      "name": "nirmal",
+      "status": "Unpaid",
+      "room_number": "ASFASF1325",
+      "category": "In House",
+      "table_number": "45"
+    },
+    {
+      "id": "9",
+      "name": "sam",
+      "status": "Unpaid",
+      "room_number": "SDFD15DF",
+      "category": "In House",
+      "table_number": "45"
+    },
+    {
+      "id": "10",
+      "name": "god",
+      "status": "Paid",
+      "room_number": "SAF123",
+      "category": "Walk In",
+      "table_number": "45"
+    },
+    {
+      "id": "11",
+      "name": "hell",
+      "status": "Unpaid",
+      "room_number": "ASFASF1325",
+      "category": "In House",
+      "table_number": "45"
+    },
+    {
+      "id": "12",
+      "name": "john",
+      "status": "Unpaid",
+      "room_number": "SDFD15DF",
+      "category": "Walk In",
+      "table_number": "45"
+    },
+    {
+      "id": "13",
+      "name": "drew",
+      "status": "Paid",
+      "room_number": "SAF12",
+      "category": "In House",
+      "table_number": "45"
+    }
+  ]
 }

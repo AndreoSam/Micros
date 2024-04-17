@@ -1,0 +1,66 @@
+.add_page_div {
+    height: 100vh;
+    background-color: grey;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.add_page_div_2 {
+    box-shadow: 0px 0px 5px 5px white;
+    border-radius: 18px;
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    gap: 2rem;
+    padding: 10px;
+    width: 350px;
+}
+
+.table_number_css {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.category_css {
+    /* border: 2px solid black; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.category_css_1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.add_page_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+
+
+.error_css {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
