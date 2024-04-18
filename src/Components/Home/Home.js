@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { deleteCustomerdata, getCustomerdata } from '../../Reducer/mediaSlice'
 import "./Home.css"
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -28,7 +28,7 @@ const Home = () => {
 
     useEffect(() => {
         getCustomer();
-    }, [dispatch])
+    }, [dispatch, getCustomer()])
 
     // console.log("State: ", state);
 

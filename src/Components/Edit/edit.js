@@ -25,7 +25,7 @@ const Edit = () => {
 
     //get single customer
     const getCustomer = (() => {
-        dispatch(singleCustomerdata(id - 1))
+        dispatch(singleCustomerdata(id))
             .then((res) => {
                 console.log("Get data: ", res.payload);
                 setState(res.payload)
