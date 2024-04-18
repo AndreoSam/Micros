@@ -3,7 +3,7 @@ import "./add.css"
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
@@ -12,6 +12,8 @@ const Add = () => {
         table_number: "",
         radio_group: ""
     })
+
+    const navigate = useNavigate()
 
     const [categoryerror, setCategoryerror] = useState(false);
     const [tableerror, setTableerror] = useState(false);
@@ -47,18 +49,19 @@ const Add = () => {
         const atLeastOneChecked = document.querySelector('input[type="radio"]:checked') !== null;
         event.preventDefault();
 
-        if (form.checkValidity() === true && !atLeastOneChecked) {
+        if (form.checkValidity() === true && atLeastOneChecked) {
             event.stopPropagation();
-            setCategoryerror(true)
+            setCategoryerror(false)
             setValidated(false);
+            navigate("/food")
         }
         else {
-            setCategoryerror(false);
+            setCategoryerror(true);
             setValidated(true);
         }
     };
     // console.log("category Error: " + categoryerror);
-
+    // console.log("Validate Error: " + validated);
 
     return (
         <div className="add_page_div">
@@ -103,7 +106,7 @@ const Add = () => {
                                     />
                                 </div>
                             ))}
-                            {categoryerror === true ? <p style={{ color: "rgb(220, 53, 69)", fontSize: "14px", fontWeight: "400", margin: 0 }}>*Please selected from any of the between!</p> : null}
+                            {categoryerror ? <p style={{ color: "rgb(220, 53, 69)", fontSize: "14px", fontWeight: "400", margin: 0 }}>*Please selected from any of the between!</p> : null}
                         </ButtonGroup>
                     </div>
                     <div className='add_page_button'>
@@ -115,15 +118,10 @@ const Add = () => {
                         </Link>
 
                         <Button variant='success' type='submit' style={{ width: "100px" }}>
-                            {/* <Link style={{ textDecoration: "none", color: "white", width:"100%" }}> */}
+                            {/* <Link to={`/food`} style={{ textDecoration: "none", color: "white", width: "100%" }}> */}
                             Next
                             {/* </Link> */}
                         </Button>
-                    </div>
-                    <div className='error_css'>
-                        <div style={{ color: "red" }}>
-                            {tableerror ? "*Please enter the table number!" : ""}
-                        </div>
                     </div>
                 </div>
             </Form>
