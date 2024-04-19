@@ -1,5 +1,4 @@
 export const base_Url = "http://localhost:1000"
-// export const base_Url = "https://andreosam.github.io/Micros/db.json"
 export const customer_url = "/customer"
 export const order_url = "/orders"
 export const food_url = "/food"

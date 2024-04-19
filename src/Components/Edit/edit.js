@@ -27,7 +27,7 @@ const Edit = () => {
     const getCustomer = (() => {
         dispatch(singleCustomerdata(id))
             .then((res) => {
-                console.log("Get data: ", res.payload);
+                // console.log("Get data: ", res.payload);
                 setState(res.payload)
             })
             .catch((err) => {
@@ -132,6 +132,7 @@ const Edit = () => {
                 dispatch(editCustomerdata(updatedCustomerdata))
                     .then(() => {
                         toast.success('Customer Updated Successful!')
+                        alert('Customer Updated Successful!')
                         getCustomer();
                         getDrink();
                         getFood();
@@ -144,7 +145,7 @@ const Edit = () => {
         }
     })
 
-    console.log("State: ", state);
+    // console.log("State: ", state);
     // console.log("Food: ", food);
     // console.log("Drink: ", drink);
 

@@ -55,8 +55,6 @@ const Home = () => {
         }
     })
 
-
-
     return (
         <div className="home_main_div">
             <div className="home_main_div_2">
