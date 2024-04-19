@@ -2,8 +2,12 @@ import React from 'react'
 import "./food.css"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useParams } from 'react-router-dom';
 
 const Food = () => {
+
+  let { id } = useParams()
+  console.log("ID: ", id);
 
   const foodItems = [{
     "name": "Appetizers",

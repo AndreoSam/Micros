@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./edit.css"
 import { Button } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { editCustomerdata, getDrinkdata, getFooddata, singleCustomerdata } from '../../Reducer/mediaSlice'
 import Badge from 'react-bootstrap/Badge';
@@ -22,7 +22,8 @@ const Edit = () => {
     // console.log("ID: ", id);
 
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
+    
     //get single customer
     const getCustomer = (() => {
         dispatch(singleCustomerdata(id))
@@ -137,6 +138,7 @@ const Edit = () => {
                         getDrink();
                         getFood();
                         // handleRender();
+                        navigate("/")
                     })
             }
             else {

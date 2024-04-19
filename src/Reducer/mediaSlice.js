@@ -12,6 +12,12 @@ export const getCustomerdata = createAsyncThunk("get/getCustomerdata", async () 
     return res?.data;
 })
 
+export const postCustomerdata = createAsyncThunk("post/postCustomerdata", async (data) => {
+    const res = await axios.post(customerUrl, data);
+    console.log("Post Customer Data: ", res.data);
+    return res?.data;
+})
+
 export const getFooddata = createAsyncThunk("get/getFooddata", async () => {
     const res = await axios.get(foodUrl);
     // console.log("Customer Data: ", res);
@@ -32,16 +38,16 @@ export const singleCustomerdata = createAsyncThunk("get/singleCustomerdata", asy
 })
 
 //edit single customer
-export const editCustomerdata = createAsyncThunk("put/editCustomerdata", async (prod) => {
-    const res = await axios.put(`${customerUrl}/${prod.id}`, prod);
-    console.log("editCustomerdata: ", res);
+export const editCustomerdata = createAsyncThunk("put/editCustomerdata", async (data) => {
+    const res = await axios.put(`${customerUrl}/${data.id}`, data);
+    // console.log("editCustomerdata: ", res);
     return res?.data;
 })
 
 //delete customer
 export const deleteCustomerdata = createAsyncThunk("put/deleteCustomerdata", async (id) => {
     const res = await axios.delete(`${customerUrl}/${id}`);
-    console.log("editCustomerdata: ", res);
+    // console.log("DeleteCustomerdata: ", res);
     return res?.data;
 })
 
@@ -72,6 +78,23 @@ export const mediaSlice = createSlice({
             state.userData = [];
             state.error = action.error.message;
             // console.log("Rejected action: ",action);
+        })
+
+        //postCustomerdata
+        builder.addCase(postCustomerdata.pending, (state, action) => {
+            state.loading = true;
+        })
+        builder.addCase(postCustomerdata.fulfilled, (state, action) => {
+            state.loading = false;
+            state.userData = action.payload;
+            state.error = null;
+            // console.log("Fulfilled action: ", action.payload);
+        })
+        builder.addCase(postCustomerdata.rejected, (state, action) => {
+            state.loading = false;
+            state.userData = [];
+            state.error = action.error.message;
+            console.log("Rejected action: ", action);
         })
 
         //getFooddata
@@ -124,7 +147,6 @@ export const mediaSlice = createSlice({
             state.userData = [];
             state.error = action.error.message;
         })
-        //get single customer data ends
 
         //edit in customer data
         builder.addCase(editCustomerdata.pending, (state, action) => {
@@ -142,14 +164,13 @@ export const mediaSlice = createSlice({
             state.userData = [];
             state.error = action.error.message;
         })
-        //edit in customer data ends
 
         //delete customer data
         builder.addCase(deleteCustomerdata.pending, (state, action) => {
             state.loading = true;
         })
         builder.addCase(deleteCustomerdata.fulfilled, (state, action) => {
-            console.log("Delete Fullfilled action: ", action);
+            // console.log("Delete Fullfilled action: ", action);
             state.loading = false;
             state.userData = action.payload;
             state.error = null;
@@ -160,7 +181,6 @@ export const mediaSlice = createSlice({
             state.userData = [];
             state.error = action.error.message;
         })
-        //delete customer data ends
     }
 })
 

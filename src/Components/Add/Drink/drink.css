@@ -1,0 +1,24 @@
+.drink_page_div {
+    padding: 10px;
+    background-color: grey;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.drink_page_div_2 {
+    box-shadow: 0px 0px 5px 5px white;
+    border-radius: 18px;
+    background-color: white;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* margin: 20px; */
+    gap: 2rem;
+    padding: 10px;
+    width: auto;
+}

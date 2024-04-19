@@ -1,0 +1,25 @@
+.option_css{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: grey;
+}
+.option_css_2{
+    border: 2px solid black;
+    padding: 80px 0;
+    border-radius: 18px;
+    background-color: white;
+    box-shadow: 0px 0px 15px 8px white;
+}
+
+.option_buttons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.option_buttons Button{
+    width: 100px;
+    font-size: 18px;
+    font-weight: 600;
+}

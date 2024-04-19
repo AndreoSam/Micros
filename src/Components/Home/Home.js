@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Swal from 'sweetalert2'
 import Badge from 'react-bootstrap/Badge';
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const Home = () => {
     const [state, setState] = useState([])
@@ -79,9 +80,20 @@ const Home = () => {
                         {
                             filterData.map((prod, index) => (
                                 <ListGroup key={prod.id} className='home_order_list'>
-                                    <ListGroup.Item className='home_order_list_font'>{index}: Name: {prod.name}, Room No: {prod.room_number}<br />
+                                    <ListGroup.Item className='home_order_list_font'>
+                                        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                                            <div>
+                                                <b>{index}: </b><b>Name: </b>{prod.name}, {prod.category === "In House" ? (<p style={{ padding: 0, margin: 0 }}><b>Room No: </b>{prod.room_number}</p>) : ""}
+                                            </div>
+                                            <Button variant="none" >
+                                                <Link to={`/view/${prod.id}`} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                    <IoIosArrowDroprightCircle color='blue' />
+                                                </Link>
+                                            </Button>
+                                        </div>
                                         <b>Category: </b>{prod.category}, <b>Status: </b>{prod.status === "Paid" ? (<Badge bg="success">{prod.status}</Badge>) : (<Badge bg="danger">{prod.status}</Badge>)}
                                     </ListGroup.Item>
+
                                     <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                                         <Dropdown>
                                             <Dropdown.Toggle variant="primary" id="dropdown-basic">

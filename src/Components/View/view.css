@@ -1,7 +1,45 @@
 .view_css {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100vh;
     padding: 10px;
+}
+
+.view_css_2 {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+    gap: 10px;
+    /* border: 2px solid black; */
+    width: 300px;
+}
+
+.view_details {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    /* gap: 10px; */
+}
+
+.view_details_single {
+    /* border: 2px solid black;  */
+    width: 100%;
+    /* color: blue; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.view_orders {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
 }

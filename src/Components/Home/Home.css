@@ -40,8 +40,8 @@
     justify-content: space-between;
 }
 
-.home_order_list .home_order_list_font{
- background-color: lightblue;   
- width: 100%;
- font-size: 15px;
+.home_order_list .home_order_list_font {
+    background-color: lightblue;
+    width: 100%;
+    font-size: 15px;
 }

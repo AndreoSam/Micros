@@ -1,22 +1,28 @@
 import React, { useState } from 'react'
 import "./add.css"
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
 import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import { postCustomerdata } from '../../Reducer/mediaSlice';
+import { useDispatch } from 'react-redux';
 
 const Add = () => {
+    const [roomnumber, setRoomnumber] = useState(false);
     let [state, setState] = useState({
+        name: "",
+        status: "Unpaid",
+        room_number: "",
         table_number: "",
-        radio_group: ""
+        category: ""
     })
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const [categoryerror, setCategoryerror] = useState(false);
     const [tableerror, setTableerror] = useState(false);
+    const [roomnumbererror, setRoomnumbererror] = useState(false);
     const [validated, setValidated] = useState(false);
 
     const changeHandler = ((event) => {
@@ -31,10 +37,26 @@ const Add = () => {
                 }
                 break;
 
-            case "radio_group":
+            case "category":
                 if (atLeastOneChecked) {
                     setCategoryerror(false)
+                    // console.log(value);
+                    if (value === "In House") {
+                        setRoomnumber(true)
+                        console.log(value, "Open");
+                    }
+                    else {
+                        setRoomnumber(false)
+                        console.log(value, "Closed");
+                    }
                 }
+                break;
+
+            case "room_number":
+                if (!value) {
+                    setRoomnumbererror(true)
+                }
+                break;
 
             default:
                 console.log("");
@@ -49,15 +71,37 @@ const Add = () => {
         const atLeastOneChecked = document.querySelector('input[type="radio"]:checked') !== null;
         event.preventDefault();
 
-        if (form.checkValidity() === true && atLeastOneChecked) {
+        if (form.checkValidity() === true && !tableerror && atLeastOneChecked && !roomnumbererror) {
+            // let details = {
+            //     id: id,
+            //     name: state.name,
+            //     status: state.status,
+            //     room_number: state.room_number,
+            //     table_number: state.table_number,
+            //     category: state.category
+            // }
+            if (state.room_number === "Walk In") {
+                setCategoryerror(false)
+                setRoomnumbererror(false)
+                setValidated(false);
+            }
+            else if (state.room_number === "In House") {
+                setRoomnumbererror(true)
+                setCategoryerror(false)
+                setValidated(false);
+            }
+
             event.stopPropagation();
-            setCategoryerror(false)
-            setValidated(false);
-            navigate("/food")
+            dispatch(postCustomerdata(state))
+                .then((prod) => {
+                    navigate(`/option/${prod.payload.id}`)
+                    // console.log("PROD: ", prod.payload.id);
+                })
         }
         else {
             setCategoryerror(true);
             setValidated(true);
+            // setRoomnumbererror(true);
         }
     };
     // console.log("category Error: " + categoryerror);
@@ -92,15 +136,17 @@ const Add = () => {
                                 <div key={`inline-${type}`} className='category_css_1'>
                                     <Form.Check
                                         inline
+                                        value="Walk In"
                                         label="Walk In"
-                                        name="radio_group"
+                                        name="category"
                                         type={type}
                                         onChange={changeHandler}
                                     />
                                     <Form.Check
                                         inline
+                                        value="In House"
                                         label="In House"
-                                        name="radio_group"
+                                        name="category"
                                         type={type}
                                         onChange={changeHandler}
                                     />
@@ -109,16 +155,29 @@ const Add = () => {
                             {categoryerror ? <p style={{ color: "rgb(220, 53, 69)", fontSize: "14px", fontWeight: "400", margin: 0 }}>*Please selected from any of the between!</p> : null}
                         </ButtonGroup>
                     </div>
-                    <div className='add_page_button'>
+                    <div>
+                        {roomnumber && (
+                            <div>
+                                <label style={{ fontWeight: "600", fontSize: "20px", margin: 0 }}>Room No:</label>
+                                <input
+                                    type="text"
+                                    name="room_number"
+                                    onChange={changeHandler}
+                                />
+                            </div>
+                        )}
+                        {roomnumbererror ? <p style={{ color: "rgb(220, 53, 69)", fontSize: "14px", fontWeight: "400", margin: 0 }}>*Please enter the room number!</p> : null}
+                    </div>
 
+                    <div className='add_page_button'>
                         <Link to={'/'} style={{ textDecoration: "none", color: "white" }}>
                             <Button variant='primary' style={{ width: "100px" }}>
                                 Back
                             </Button>
                         </Link>
 
-                        <Button variant='success' type='submit' style={{ width: "100px" }}>
-                            {/* <Link to={`/food`} style={{ textDecoration: "none", color: "white", width: "100%" }}> */}
+                        <Button variant='success' type='submit' style={{ width: "100px" }} >
+                            {/* <Link to={`/food/${state.id}`} style={{ textDecoration: "none", color: "white", width: "100%" }}> */}
                             Next
                             {/* </Link> */}
                         </Button>

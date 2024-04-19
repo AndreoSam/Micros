@@ -38,27 +38,11 @@
   ],
   "customer": [
     {
-      "id": "3",
-      "name": "Adam",
-      "room_number": "SDFD15D",
-      "table_number": "25",
-      "category": "In House",
-      "status": "Unpaid"
-    },
-    {
       "id": "5",
       "name": "shyam",
       "status": "Unpaid",
       "room_number": "ASFASF1325",
       "category": "Walk In",
-      "table_number": "45"
-    },
-    {
-      "id": "6",
-      "name": "raju",
-      "status": "Unpaid",
-      "room_number": "SDFD15DF",
-      "category": "In House",
       "table_number": "45"
     },
     {
@@ -70,14 +54,6 @@
       "table_number": "45"
     },
     {
-      "id": "8",
-      "name": "nirmal",
-      "status": "Unpaid",
-      "room_number": "ASFASF1325",
-      "category": "In House",
-      "table_number": "45"
-    },
-    {
       "id": "9",
       "name": "sam",
       "status": "Unpaid",
@@ -86,28 +62,20 @@
       "table_number": "45"
     },
     {
-      "id": "10",
-      "name": "god",
-      "status": "Paid",
-      "room_number": "SAF123",
-      "category": "Walk In",
-      "table_number": "45"
+      "id": "33d5",
+      "name": "Andreo",
+      "status": "Unpaid",
+      "room_number": "ABC123",
+      "table_number": "123",
+      "category": "In House"
     },
     {
-      "id": "11",
-      "name": "hell",
-      "status": "Unpaid",
-      "room_number": "ASFASF1325",
+      "id": "1c69",
+      "name": "Andreo samaddar",
+      "room_number": "ABC123",
+      "table_number": "123",
       "category": "In House",
-      "table_number": "45"
-    },
-    {
-      "id": "12",
-      "name": "john",
-      "status": "Unpaid",
-      "room_number": "SDFD15DF",
-      "category": "Walk In",
-      "table_number": "45"
+      "status": "Paid"
     }
   ]
 }
