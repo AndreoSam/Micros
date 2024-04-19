@@ -46,14 +46,6 @@
       "status": "Unpaid"
     },
     {
-      "id": "4",
-      "name": "Amit",
-      "room_number": "SAF12S4",
-      "table_number": "20",
-      "category": "Walk In",
-      "status": "Unpaid"
-    },
-    {
       "id": "5",
       "name": "shyam",
       "status": "Unpaid",
